@@ -1,0 +1,28 @@
+name: Deploy to Coolify
+
+on:
+  push:
+    branches: [main, master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - name: Deploy to Coolify
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.COOLIFY_HOST }}
+          username: ${{ secrets.COOLIFY_USER }}
+          key: ${{ secrets.COOLIFY_SSH_KEY }}
+          script: |
+            cd /opt/coolify/projects/landing-lora-react
+            git pull origin main
+            docker compose build --no-cache
+            docker compose up -d
