@@ -3,8 +3,8 @@ export default function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-bg/85 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="flex items-center gap-3">
-            <img src="/logo.svg" alt="Alystech" className="w-8 h-8" />
+          <a href="https://www.alystechpy.online" className="flex items-center gap-3">
+            <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="Alystech" className="w-8 h-8" />
             <span className="font-display font-semibold text-lg text-text">
               Alys<span className="gradient-brand-text">Tech</span>
             </span>
