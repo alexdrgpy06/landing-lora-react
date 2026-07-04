@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="bg-bg border-t border-border py-12">
       <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-4 text-center">
         <a href="https://www.alystechpy.online" className="flex items-center gap-3">
-          <img src="/logo.svg" alt="Alystech" className="w-9 h-9" />
+          <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="Alystech" className="w-9 h-9" />
           <span className="font-display font-semibold text-lg text-text">
             Alys<span className="gradient-brand-text">Tech</span>
           </span>

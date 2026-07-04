@@ -17,9 +17,14 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=coolify"
-      - "traefik.http.routers.landing-lora.rule=Host(`lora.alystechpy.online`)"
+      # Publicado como path del sitio principal: alystechpy.online/lora
+      # (no subdominio) — prioridad alta para ganarle al router raíz de apps/web.
+      - "traefik.http.routers.landing-lora.rule=(Host(`alystechpy.online`) || Host(`www.alystechpy.online`)) && PathPrefix(`/lora`)"
       - "traefik.http.routers.landing-lora.entrypoints=https"
       - "traefik.http.routers.landing-lora.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.landing-lora.priority=1200"
+      - "traefik.http.routers.landing-lora.middlewares=landing-lora-stripprefix"
+      - "traefik.http.middlewares.landing-lora-stripprefix.stripprefix.prefixes=/lora"
       - "traefik.http.services.landing-lora.loadbalancer.server.port=80"
 
 networks:

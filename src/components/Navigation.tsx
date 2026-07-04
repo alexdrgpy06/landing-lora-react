@@ -4,7 +4,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           <a href="https://www.alystechpy.online" className="flex items-center gap-3">
-            <img src="/logo.svg" alt="Alystech" className="w-8 h-8" />
+            <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="Alystech" className="w-8 h-8" />
             <span className="font-display font-semibold text-lg text-text">
               Alys<span className="gradient-brand-text">Tech</span>
             </span>
