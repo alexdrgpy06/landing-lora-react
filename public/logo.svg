@@ -9,13 +9,16 @@
       <stop offset="100%" stop-color="#10B981" />
     </radialGradient>
   </defs>
-  <rect width="200" height="200" rx="40" fill="#050807" />
-  <circle cx="100" cy="100" r="88" fill="none" stroke="#6EE7B7" stroke-opacity="0.45" stroke-width="3" />
+
+  <circle cx="100" cy="100" r="92" fill="none" stroke="#6EE7B7" stroke-opacity="0.45" stroke-width="3" />
+
   <circle cx="100" cy="103" r="26" fill="url(#atGradDot)" />
+
   <path
     d="M100 46 L156 148 Q158 152 154 154 L146 154 Q142 154 140 150 L100 78 L60 150 Q58 154 54 154 L46 154 Q42 152 44 148 L100 46 Z"
     fill="url(#atGradA)"
   />
+
   <circle cx="163" cy="70" r="4" fill="#10B981" />
   <circle cx="64" cy="152" r="3" fill="#10B981" />
   <circle cx="84" cy="163" r="3.5" fill="#10B981" />

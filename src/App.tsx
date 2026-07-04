@@ -20,7 +20,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-bg">
       <Navigation />
       <main>
         <Hero onCtaClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })} />

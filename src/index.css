@@ -1,30 +1,74 @@
 @import "tailwindcss";
 
+/* Alystech — paleta de marca (verde/menta) para el producto LoRa Estancias.
+   Fondo casi negro + acento teal/emerald, con grises "gunmetal" para
+   texturas técnicas (hardware, mallas de radio). */
 @theme {
-  --color-navy-900: #0a1628;
-  --color-navy-800: #112240;
-  --color-navy-700: #1d3a5c;
-  --color-blue-500: #3b82f6;
-  --color-blue-600: #2563eb;
-  --color-blue-700: #1d4ed8;
-  --color-blue-100: #dbeafe;
-  --color-emerald-500: #10b981;
-  --color-emerald-600: #059669;
+  --color-bg: #050807;
+  --color-surface: #0b0f0d;
+  --color-panel: #0f1512;
+  --color-panel-2: #131a16;
+  --color-border: #1c2621;
+  --color-border-light: #24322b;
+  --color-text: #eaeaea;
+  --color-dim: #8b9791;
+
+  --color-mint: #6ee7b7;
+  --color-brand: #34d399;
+  --color-brand-dark: #059669;
+  --color-brand-light: #10b981;
+
+  --color-graphite-900: #10151a;
+  --color-graphite-800: #1a2129;
+  --color-graphite-700: #262f38;
+  --color-graphite-600: #3a4650;
+  --color-graphite-400: #6b7a84;
+
   --color-amber-500: #f59e0b;
-  --color-amber-600: #d97706;
   --color-red-500: #ef4444;
   --color-red-600: #dc2626;
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
-  --color-white: #ffffff;
+
+  --font-display: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-bg);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+.gradient-brand {
+  background: linear-gradient(135deg, var(--color-brand) 0%, var(--color-brand-dark) 100%);
+}
+
+.gradient-brand-text {
+  background: linear-gradient(135deg, var(--color-mint) 0%, var(--color-brand-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.grid-texture {
+  background-image:
+    linear-gradient(to right, rgba(110, 231, 183, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(110, 231, 183, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glass-panel {
+  background: color-mix(in srgb, var(--color-panel) 88%, transparent);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(12px);
 }
 
 @utility animate-fade-in {
@@ -37,6 +81,14 @@
 
 @utility animate-slide-down {
   animation: slideDown 0.3s ease-out;
+}
+
+@utility animate-dash {
+  animation: dashMove 3s linear infinite;
+}
+
+@utility animate-pulse-ring {
+  animation: pulseRing 2.4s ease-out infinite;
 }
 
 @keyframes fadeIn {
@@ -52,4 +104,14 @@
 @keyframes slideDown {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dashMove {
+  to { stroke-dashoffset: -24; }
+}
+
+@keyframes pulseRing {
+  0% { opacity: 0.7; transform: scale(0.9); }
+  70% { opacity: 0; transform: scale(1.15); }
+  100% { opacity: 0; transform: scale(1.15); }
 }

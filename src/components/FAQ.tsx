@@ -44,13 +44,13 @@ export default function FAQ({ id = 'faq' }: { id?: string }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id={id} className="py-20 md:py-28 bg-white">
+    <section id={id} className="py-20 md:py-28 bg-bg">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-navy-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-text mb-4">
             Preguntas frecuentes
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-lg text-dim leading-relaxed">
             Respuestas directas a las dudas más comunes antes de implementar.
           </p>
         </div>
@@ -59,19 +59,19 @@ export default function FAQ({ id = 'faq' }: { id?: string }) {
           {faqs.map((faq, index) => (
             <details
               key={index}
-              className="group border border-gray-200 rounded-xl bg-white overflow-hidden"
+              className="group border border-border rounded-xl bg-panel overflow-hidden"
               open={openIndex === index}
               onToggle={() => setOpenIndex(openIndex === index ? null : index)}
             >
               <summary className="flex items-center gap-3 p-5 cursor-pointer list-none">
-                <span className="w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg flex-shrink-0">?</span>
-                <span className="text-lg font-semibold text-navy-900">{faq.question}</span>
-                <svg className="ml-auto w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="w-8 h-8 bg-brand/10 rounded-full flex items-center justify-center text-brand font-bold text-lg flex-shrink-0">?</span>
+                <span className="text-lg font-semibold text-text">{faq.question}</span>
+                <svg className="ml-auto w-5 h-5 text-dim group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </summary>
-              <div className="px-5 pb-5 border-t border-gray-100 animate-slide-down">
-                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+              <div className="px-5 pb-5 border-t border-border animate-slide-down">
+                <p className="text-dim leading-relaxed">{faq.answer}</p>
               </div>
             </details>
           ))}
